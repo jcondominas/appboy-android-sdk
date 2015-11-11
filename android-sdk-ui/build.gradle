@@ -35,3 +35,11 @@ android {
     }
   }
 }
+
+apply plugin: 'maven'
+
+uploadArchives {
+  repositories.mavenDeployer {
+    repository(url: "file:///$project.rootDir/wallapop-sdk/")
+  }
+}
