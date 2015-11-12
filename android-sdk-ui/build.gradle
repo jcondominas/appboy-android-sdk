@@ -42,7 +42,7 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer() {
-            repository(url: "file:///$project.rootDir/wallapop-sdk/"){
+            repository(url: "file:///$project.rootDir/sdk/"){
             }
             pom.project {
                 name project.name
