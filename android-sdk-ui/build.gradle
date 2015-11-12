@@ -2,44 +2,54 @@ apply plugin: 'android-library'
 apply plugin: 'android-maven'
 
 dependencies {
-  compile files('libs/appboy.jar')
-  // Note: This requires the Android Support Repository to be installed, please see the README.md. The jar is
-  // also available in the libs/ directory to help support people who are using older build systems.
-  compile 'com.android.support:support-v4:23.0.1'
-  provided ("com.facebook.fresco:fresco:0.6.1") {
-    exclude group: 'com.android.support', module: 'support-v4'
-  }
+    compile files('libs/appboy.jar')
+    // Note: This requires the Android Support Repository to be installed, please see the README.md. The jar is
+    // also available in the libs/ directory to help support people who are using older build systems.
+    compile 'com.android.support:support-v4:23.0.1'
+    provided("com.facebook.fresco:fresco:0.6.1") {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
 }
 
 android {
-  compileSdkVersion 23
-  buildToolsVersion '23.0.1'
+    compileSdkVersion 23
+    buildToolsVersion '23.0.1'
 
-  defaultConfig {
-    minSdkVersion 9
-    targetSdkVersion 23
-  }
-
-  sourceSets {
-    main.setRoot(".")
-    // Note: We'll be moving this project to the new Android Build System conventional folder structure in a future
-    // release.
-    main {
-      manifest.srcFile 'AndroidManifest.xml'
-      java.srcDirs = ['src']
-      resources.srcDirs = ['src']
-      aidl.srcDirs = ['src']
-      renderscript.srcDirs = ['src']
-      res.srcDirs = ['res']
-      assets.srcDirs = ['assets']
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion 23
     }
-  }
+
+    sourceSets {
+        main.setRoot(".")
+        // Note: We'll be moving this project to the new Android Build System conventional folder structure in a future
+        // release.
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+    }
 }
 
 apply plugin: 'maven'
 
+
 uploadArchives {
-  repositories.mavenDeployer {
-    repository(url: "file:///$project.rootDir/wallapop-sdk/")
-  }
+    repositories {
+        mavenDeployer() {
+            repository(url: "file:///$project.rootDir/wallapop-sdk/"){
+            }
+            pom.project {
+                name project.name
+                packaging 'jar'
+                description project.description
+                url 'https://github.com/Wallapop/appboy-android-sdk.git'
+            }
+        }
+    }
 }
