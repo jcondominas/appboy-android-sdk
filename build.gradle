@@ -13,12 +13,12 @@ buildscript {
 subprojects {
   repositories {
     mavenCentral()
-    maven { url "http://appboy.github.io/appboy-android-sdk/sdk" }
+    maven { url "http://wallapop.github.io/appboy-android-sdk/sdk" }
   }
 
   group = 'com.appboy'
   version = '1.10.3'
-  String wallapopVersion = 'w1.0'
+  String wallapopVersion = 'w1.2'
   version = "$wallapopVersion-$version"
 
   apply plugin: 'android-sdk-manager'

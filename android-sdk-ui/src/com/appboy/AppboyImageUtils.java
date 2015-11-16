@@ -7,13 +7,9 @@ import android.graphics.BitmapFactory;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.Environment;
-import android.util.DisplayMetrics;
-import android.view.WindowManager;
 
 import com.appboy.support.AppboyLogger;
 import com.appboy.support.PermissionUtils;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -62,22 +58,6 @@ public class AppboyImageUtils {
         return bitmap;
     }
 
-
-    public static void setRoundingCorners(final SimpleDraweeView mDrawee, final Context context, final float radius) {
-        if (mDrawee == null) return;
-        setRoundingCorners(mDrawee, context, radius, radius, radius, radius);
-    }
-
-    public static void setRoundingCorners(final SimpleDraweeView mDrawee, final Context context, final float topLeftRadius,
-                                          final float topRightRadius, final float bottomLeftRadius, final float bootmRightRadius) {
-        if (mDrawee == null) return;
-
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-        RoundingParams r = RoundingParams.fromCornersRadii(topLeftRadius, topRightRadius, bottomLeftRadius, bootmRightRadius);
-        mDrawee.getHierarchy().setRoundingParams(r);
-    }
 
     public static int getPixelsFromDensityAndDp(int dpi, int dp) {
         return (dpi * dp) / BASELINE_SCREEN_DPI;

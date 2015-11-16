@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.appboy.AppboyImageUtils;
 import com.appboy.Constants;
 import com.appboy.models.cards.CaptionedImageCard;
 import com.appboy.ui.R;
@@ -33,7 +32,7 @@ public class CaptionedImageCardView extends BaseCardView<CaptionedImageCard> {
     public CaptionedImageCardView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(null);
-        AppboyImageUtils.setRoundingCorners(mDrawee, mContext, getRadius(), getRadius(), 0,0);
+        setRoundingCorners(mDrawee, mContext, getRadius(), getRadius(), 0,0);
     }
 
     public CaptionedImageCardView(Context context) {

@@ -7,9 +7,11 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewStub;
 import android.view.ViewTreeObserver;
+import android.view.WindowManager;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -24,6 +26,7 @@ import com.appboy.ui.R;
 import com.appboy.ui.actions.IAction;
 import com.appboy.ui.support.FrescoLibraryUtils;
 import com.appboy.ui.support.StringUtils;
+import com.facebook.drawee.generic.RoundingParams;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.Observable;
@@ -360,5 +363,21 @@ public abstract class BaseCardView<T extends Card> extends RelativeLayout implem
             typeFace += ".ttf";
 
         return typeFace;
+    }
+
+    public void setRoundingCorners(final SimpleDraweeView mDrawee, final Context context, final float radius) {
+        if (mDrawee == null) return;
+        setRoundingCorners(mDrawee, context, radius, radius, radius, radius);
+    }
+
+    public void setRoundingCorners(final SimpleDraweeView mDrawee, final Context context, final float topLeftRadius,
+                                          final float topRightRadius, final float bottomLeftRadius, final float bootmRightRadius) {
+        if (mDrawee == null) return;
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+        RoundingParams r = RoundingParams.fromCornersRadii(topLeftRadius, topRightRadius, bottomLeftRadius, bootmRightRadius);
+        mDrawee.getHierarchy().setRoundingParams(r);
     }
 }

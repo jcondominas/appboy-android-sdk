@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.appboy.AppboyImageUtils;
 import com.appboy.Constants;
 import com.appboy.models.cards.CrossPromotionSmallCard;
 import com.appboy.ui.R;
@@ -38,7 +37,7 @@ public class CrossPromotionSmallCardView extends BaseCardView<CrossPromotionSmal
     public CrossPromotionSmallCardView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
         init(null);
-        AppboyImageUtils.setRoundingCorners(mDrawee, mContext, getRadius(), getRadius(), 0 ,0 );
+        setRoundingCorners(mDrawee, mContext, getRadius(), getRadius(), 0 ,0 );
     }
 
     private void init(final CrossPromotionSmallCard card) {

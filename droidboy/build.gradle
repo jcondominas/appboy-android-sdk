@@ -2,13 +2,14 @@ apply plugin: 'android'
 apply plugin: 'findbugs'
 
 dependencies {
-  compile project(':android-sdk-ui')
+//  compile project(':android-sdk-ui')
   // Note: This requires the Android Support Repository to be installed, please see the README.md
   compile 'com.android.support:support-v4:23.0.1'
   compile 'com.google.android.support:wearable:1.2.0'
   compile 'com.google.android.gms:play-services-wearable:7.5.0'
   compile "com.facebook.fresco:fresco:0.6.1"
   compile 'com.facebook.stetho:stetho:1.1.1'
+  compile "com.appboy:android-sdk-ui:w1.1-1.10.3"
   // To link the wearboy app with Droidboy
 //  wearApp project(':wearboy')
 }
@@ -18,7 +19,7 @@ android {
   buildToolsVersion '23.0.1'
 
   defaultConfig {
-    minSdkVersion 9
+    minSdkVersion 14
     targetSdkVersion 23
   }
 

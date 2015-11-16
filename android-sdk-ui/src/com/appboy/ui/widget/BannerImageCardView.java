@@ -6,7 +6,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.appboy.AppboyImageUtils;
 import com.appboy.Constants;
 import com.appboy.models.cards.BannerImageCard;
 import com.appboy.support.AppboyLogger;
@@ -33,7 +32,7 @@ public class BannerImageCardView extends BaseCardView<BannerImageCard> {
     public BannerImageCardView(Context context, AttributeSet set) {
         super(context, set);
         init(null);
-        AppboyImageUtils.setRoundingCorners(mDrawee, mContext, getRadius());
+        this.setRoundingCorners(mDrawee, mContext, getRadius());
     }
 
     public BannerImageCardView(final Context context, BannerImageCard card) {

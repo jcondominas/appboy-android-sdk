@@ -1,14 +1,12 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 apply plugin: 'android-maven'
 
 dependencies {
     compile files('libs/appboy.jar')
     // Note: This requires the Android Support Repository to be installed, please see the README.md. The jar is
     // also available in the libs/ directory to help support people who are using older build systems.
-    compile 'com.android.support:support-v4:23.0.1'
-    provided("com.facebook.fresco:fresco:0.6.1") {
-        exclude group: 'com.android.support', module: 'support-v4'
-    }
+    compile 'com.android.support:support-v13:23.1.0'
+    provided("com.facebook.fresco:fresco:0.6.1")
 }
 
 android {
@@ -16,7 +14,7 @@ android {
     buildToolsVersion '23.0.1'
 
     defaultConfig {
-        minSdkVersion 9
+        minSdkVersion 14
         targetSdkVersion 23
     }
 
@@ -42,13 +40,12 @@ apply plugin: 'maven'
 uploadArchives {
     repositories {
         mavenDeployer() {
-            repository(url: "file:///$project.rootDir/sdk/"){
+            repository(url: "file:///$project.rootDir/library/sdk/"){
             }
             pom.project {
                 name project.name
                 packaging 'jar'
                 description project.description
-                url 'https://github.com/Wallapop/appboy-android-sdk.git'
             }
         }
     }
