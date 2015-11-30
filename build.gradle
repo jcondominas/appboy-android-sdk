@@ -17,7 +17,7 @@ subprojects {
   }
 
   group = 'com.appboy'
-  version = '1.10.3'
+  version = '1.11.0'
   String wallapopVersion = 'w1.4'
   version = "$wallapopVersion-$version"
 
@@ -26,5 +26,5 @@ subprojects {
 
 // Run 'gradle wrapper' to generate all of the wrapper files if you change this.
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.4'
+  gradleVersion = '2.9'
 }
