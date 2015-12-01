@@ -267,7 +267,6 @@ public class InAppMessageTesterActivity extends AppboyFragmentActivity implement
       inAppMessage.setMessage("Welcome to Appboy! Appboy is Marketing Automation for Apps.  This is a modal in-app message.");
       inAppMessage.setHeader("Hello from Appboy!");
       inAppMessage.setIcon("\uf091");
-      setModalFrameColor(((InAppMessageModal) inAppMessage));
     } else if (inAppMessage instanceof InAppMessageFull) {
       inAppMessage.setMessage("Welcome to Appboy! Appboy is Marketing Automation for Apps. This is an example of a full in-app message.");
       inAppMessage.setHeader("Hello from Appboy!");
@@ -465,11 +464,6 @@ public class InAppMessageTesterActivity extends AppboyFragmentActivity implement
     }
   }
 
-  private void setModalFrameColor(InAppMessageModal inAppMessage) {
-    if (!SpinnerUtils.SpinnerItemNotSet(mModalFrameColor)) {
-      inAppMessage.setModalFrameColor(parseColorFromString(mModalFrameColor));
-    }
-  }
 
   private void addMessageButtons(IInAppMessageImmersive inAppMessage) {
     // add message buttons.
